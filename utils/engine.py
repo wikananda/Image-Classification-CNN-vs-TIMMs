@@ -52,7 +52,7 @@ def _save_train_plot(curves, show=False):
     plt.title('Training and Validation Loss')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
-    plt.savefig(f'{train_cfg['root_results']}/{train_cfg['project_name']}_{model_name}.png')
+    plt.savefig(f"{train_cfg['root_results']}/{train_cfg['project_name']}_{model_name}.png")
     if show:
         plt.show()
 
@@ -62,7 +62,7 @@ def _save_metrics_txt(metrics, path):
             f.write(f"{key}: {value}\n")
 
 def _get_model_name():
-    return train_cfg['model_name'] if train_cfg['model_name'] == 'cnn' else f'{train_cfg.get('model_cfg').get('timm')['name']}'
+    return train_cfg['model_name'] if train_cfg['model_name'] == 'cnn' else f"{train_cfg.get('model_cfg').get('timm')['name']}"
 
 
 def _build_model():
@@ -121,7 +121,7 @@ def train(dm):
                            lr=float(train_cfg["lr"]),
                            weight_decay=float(train_cfg["weight_decay"]))
     # print("model: ", train_cfg[''])
-    # model_name = train_cfg['model_name'] if train_cfg['model_name'] == 'cnn' else f'{train_cfg.get('model_cfg').get('timm')['name']}'
+    # model_name = train_cfg['model_name'] if train_cfg['model_name'] == 'cnn' else f"{train_cfg.get('model_cfg').get('timm')['name']}"
     model_name = _get_model_name()
     print(f"Using model {model_name} with params: {params}")
     num_epochs = train_cfg["num_epochs"]
