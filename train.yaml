@@ -1,0 +1,30 @@
+project_name: "real_vs_ai"
+ds_processed: True
+
+device: "mps" # "cpu", "cuda", "mps"
+num_classes: 2
+lr: 1e-4
+weight_decay: 1e-4
+
+model_name: "timm" # cnn, timm
+model_cfg:
+  cnn:
+    channels: [64, 128, 256]
+    kernel_size: 3
+    pool_kernel_size: 2
+    dropout_conv: [0.2, 0.2, 0.3]
+    dropout_classifier: 0.5
+    classifier_hidden: 256
+    input_size: 224
+  timm:
+    name: "swiftformer_xs.dist_in1k" # resnet models, swiftformer, probably other timm models but haven't tested yet
+    pretrained: True
+    freeze_backbone: True
+    create_kwargs:
+      drop_rate: 0.2
+      drop_path_rate: 0.1
+root_checkpoints: "checkpoints"
+root_results: "results"
+criterion: "CrossEntropyLoss" # CrossEntropyLoss (currently this only)
+optimizer: "Adam" # Adam, SGD, AdamW
+num_epochs: 20

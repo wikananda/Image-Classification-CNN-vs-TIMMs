@@ -1,0 +1,16 @@
+.DS_Store
+
+checkpoints/*
+!checkpoints/.gitkeep
+
+dataset/processed/*
+!dataset/processed/.gitkeep
+
+dataset/raw/*
+!dataset/raw/.gitkeep
+
+results/*
+!results/.gitkeep
+
+test_imgs/*
+!test_imgs/.gitkeep
