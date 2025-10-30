@@ -2,11 +2,12 @@
 Nyoman Wikananda Santana  
 **Repository:** [wikananda/Image-Classification-CNN-vs-TIMMs](https://github.com/wikananda/Image-Classification-CNN-vs-TIMMs)  
 
-This project compares the performance of two paradigms in image classification:  
+This project gives basic implementation in image classification:  
 - A custom or classical Convolutional Neural Network (CNN) architecture.  
 - Pretrained models from the [TIMM](https://huggingface.co/timm) library (e.g., ResNet, SwiftFormer).  
 
 Currently, the main trained model is the SwiftFormer (via TIMM) variant; the classical CNN branch is planned/in progress.
+The model is trained using [AI vs Real image dataset](https://www.kaggle.com/datasets/tristanzhang32/ai-generated-images-vs-real-images). I was only using the test set as my training, validation and test data due to my low computing power.
 
 The goal is to evaluate:  
 - Accuration metrics (accuracy, precision, f1-score) 
@@ -34,11 +35,14 @@ The goal is to evaluate:
 ### Dataset Preparation  
 - Update `dataset.yaml` for train/val/test splits, image size, etc.  
 - If you already processed your dataset (splitting and preprocessing), place it under `dataset/processed`.
-- If not, placed under `dataset/raw` and run DataModule.setup(processed=False).  
+- If not, placed under `dataset/raw` and run:
+  ```bash
+  DataModule.setup(processed=False)
+  ```  
 
 ### Training  
-- Adjust hyperparameters/model choice in `train.yaml`. For TIMM model, checkout more [here](https://huggingface.co/timm/models)
-- Checkout `test_ai_vs_real.ipynb` for implementation example
+- Adjust hyperparameters/model choice in `train.yaml`. For TIMM model, checkout more [here](https://huggingface.co/timm/models).
+- Checkout `test_ai_vs_real.ipynb` for implementation example.
   
 ### Evaluation / Inference  
 - After training, model checkpoints will be saved in `models/`.  
