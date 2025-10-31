@@ -14,7 +14,8 @@ The goal is to evaluate:
 ```
 /
 ├── dataset/               # Holds dataset files (images, labels, splits)
-├── models/                # Saved trained models (checkpoints)
+├── checkpoints/           # Saved trained models (checkpoints)
+├── models/                # Model implementation
 ├── results/               # Logs, performance metrics, plots
 ├── test_imgs/             # Sample images for inference / demo
 ├── utils/                 # Utility scripts (data loading, transforms, etc.)
@@ -33,14 +34,14 @@ The goal is to evaluate:
 For my experiment, the model is trained using [AI vs Real image dataset](https://www.kaggle.com/datasets/tristanzhang32/ai-generated-images-vs-real-images). I was only using the test set as my training, validation and test data due to my low computing power.
 - Update `dataset.yaml` for train/val/test splits, image size, etc.  
 - If you already processed your dataset (splitting and preprocessing), place it under `dataset/processed`.
-- If not, placed under `dataset/raw` and run:
+- If not, place it under `dataset/raw` and run:
   ```bash
   DataModule.setup(processed=False)
   ```  
 
 ### Training  
-- Adjust hyperparameters/model choice in `train.yaml`. For TIMM model, checkout more [here](https://huggingface.co/timm/models).
-- Checkout `test_ai_vs_real.ipynb` for implementation example.
+- Adjust hyperparameters/model choice in `train.yaml`. For TIMM model, check out more [here](https://huggingface.co/timm/models).
+- Check out `test_ai_vs_real.ipynb` for implementation example.
   
 ### Evaluation / Inference  
 - After training, model checkpoints will be saved in `models/`.  
